@@ -1,0 +1,62 @@
+/* SCSS */
+@font-face {
+  font-family: Oddval Variable;
+  src: url("https://garet.typeforward.com/assets/fonts/campaigns/OddvalVariable-VariableVF.woff2");
+}
+
+body {
+  width: 100vw;
+  height: 10vh;
+  overflow: hidden;
+  background-color: #4801b4;
+  text-align: center;
+  line-height: 90%;
+  font-variation-settings: "wght" 900, "ital" 1;
+  font-family: Oddval Variable;
+  color: #ff78d2;
+  white-space: nowrap;
+  font-size: 20vh;
+}
+.content-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.text-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @for $line from 1 through 4 {
+    @for $letter from 1 through 10 {
+      &:nth-child(#{$line}) span:nth-child(#{$letter}) {
+        animation-delay: #{$letter * 0.1s + $line * 0.2s};
+      }
+    }
+  }
+}
+
+div span {
+  display: inline-block;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-name: change;
+  transition-timing-function: ease-in-out;
+}
+
+@keyframes change {
+  0% {
+    font-variation-settings: "wght" 900, "ital" 1;
+  }
+
+  50% {
+    font-variation-settings: "wght" 100, "ital" 0;
+  }
+
+  100% {
+    font-variation-settings: "wght" 900, "ital" 1;
+  }
+}
